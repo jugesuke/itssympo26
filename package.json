@@ -1,0 +1,17 @@
+{
+  "name": "comfortex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "textlint": "textlint"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "textlint": "^15.2.2",
+    "textlint-plugin-latex2e": "^1.2.1",
+    "textlint-rule-preset-japanese": "^10.0.4"
+  }
+}

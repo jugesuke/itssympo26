@@ -1,0 +1,7 @@
+{
+  "plugins": ["latex2e"],
+  "filters": {},
+  "rules": {
+    "preset-japanese": true
+  }
+}

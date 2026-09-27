@@ -1,0 +1,6 @@
+services:
+  texlive:
+    image: paperist/texlive-ja
+    working_dir: /src
+    volumes:
+      - .:/src

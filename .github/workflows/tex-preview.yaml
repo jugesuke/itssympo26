@@ -1,0 +1,67 @@
+name: tex-preview
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      # - uses: docker/setup-buildx-action@v3
+      # - uses: docker/build-push-action@v5
+      #   with:
+      #     load: true
+      #     context: ./docker/texlive
+      #     push: false
+      #     tags: comfortex_texlive:latest
+      #     cache-from: type=gha
+      #     cache-to: type=gha,mode=max
+      - name: build
+        run: | 
+          docker compose run texlive latexmk ./main.tex
+      - name: Upload output file
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-pdf
+          path: out/main.pdf
+  upload:
+    name: upload
+    runs-on: ubuntu-22.04
+    needs: build
+    if: github.ref_name != 'master'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download a single artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: preview-pdf
+      - name: dropbox upload
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          fid=$(cat /proc/sys/kernel/random/uuid)
+          access_token=$(curl https://api.dropbox.com/oauth2/token \
+            -d grant_type=refresh_token \
+            -d refresh_token=${{ secrets.DROPBOX_REFRESH_TOKEN }} \
+            -d client_id=${{ secrets.DROPBOX_APP_KEY }} \
+            -d client_secret=${{ secrets.DROPBOX_APP_SECRET }}\
+            | jq -r .access_token)
+          curl -X POST https://content.dropboxapi.com/2/files/upload \
+            --header "Authorization: Bearer ${access_token}" \
+            --header "Dropbox-API-Arg: {\"autorename\":false,\"mode\":\"add\",\"mute\":false,\"path\":\"/${fid}.pdf\",\"strict_conflict\":false}" \
+            --header "Content-Type: application/octet-stream" \
+            --data-binary @main.pdf
+          share_link=$(curl -X POST https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings \
+            --header "Authorization: Bearer ${access_token}" \
+            --header "Content-Type: application/json" \
+            --data "{\"path\":\"/${fid}.pdf\",\"settings\":{\"access\":\"viewer\",\"allow_download\":true,\"audience\":\"public\",\"requested_visibility\":\"public\"}}" \
+            | jq -r .url)
+          cat << EOF > comments
+            Successfully built!
+            <a href="${share_link}" target="_blank" rel="noopener noreferrer">Preview and Download</a>
+          EOF
+          gh pr comment -F ./comments ${{ github.event.pull_request.html_url }}
