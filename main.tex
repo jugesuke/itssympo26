@@ -43,10 +43,7 @@
 \begin{minipage}{.9\textwidth}%
 \vspace{1.0em} %
 %
-第\Kai{}回ITSシンポジウム\the\year{}のための最終原稿執筆要領を記します．
-本ファイルに原稿の内容を貼り付けることにより，
-適切な形式での提出が行えるでしょう．（論文概要：和文300字程度）\\
-シンポジウムの開催年および開催回数（$=$ 開催年$-2002$）は現在日時に応じて自動的に更新されます．
+アブストラクトが300字程度で入ります。
 %
 \end{minipage}%
 \end{center}%
@@ -80,12 +77,7 @@ Affiliation 2$^{*2}$
 \begin{minipage}{.9\textwidth}%
 \vspace*{1.0em} % added for pLaTeX
 {\bf Abstract  }%
-A method for preparing a manuscript 
-for the \Kai{}th ITS Symposium \the\year{} is described.
-Cutting and pasting your contents on this file, 
-you can complete your paper immediately.\\
-The year and number of symposia are automatically updated according to the current date.\\
-(Abstract: 100 words)
+Abstract: 100 words
 \end{minipage}%
 \end{center}%
 \vspace*{0.0mm} % added for pLaTeX
@@ -113,97 +105,7 @@ ITS, A4, Manuscript, LaTeX
 %
 \section{フォーマット}
 %
-\begin{itemize}
-\item 用紙サイズ： A4サイズとします．
-\item 表題に論文名，著者名，アブストラクトを和文・英文併記でお書きください． 
-\item Keywords（英文）を1行程度お書きください． 
-\item 本文は2段組とします．
-\item 図表類は本文中に埋め込んで下さい．
-\item 原稿は\textbf{6ページ}以内です．
-\end{itemize}
-%
-本サンプルはp\LaTeXe\, for Windows\cite{pLaTeX2e1,pLaTeX2e2}
-の使用を前提として作成されています．
-\LaTeX 2.09など他のバージョンをご使用の場合，スタイルファイルの修正等が
-必要になる可能性がありますが，それらへの対応についてはご容赦下さい．
-%
-\section{式・図・表などの書き方}
-\subsection{数式}
-原則として，すべての数式に式番をつけてください．式番は通し番号とし，(1), (2), $\cdots $ のように表します．
-参照する場合は式(1), 式(2), $\cdots $とします．
-\begin{equation}
-\displaystyle y =  \frac{a+b}{c+\mbox{その他}\strut}
-\label{formula}
-\end{equation}
-%
-式(\ref{formula})に$a=2.0$を代入すると，$\cdots$となる．
-%
-\subsection{図表}
-図表のキャプション番号は，それぞれ，Fig.1, \, Fig.2, \, $ \cdots $，Table\,1,\,Table\,2,\, $ \cdots $のように通し番号としてください．本文中で
-図，表を引用する場合には，図1,\,図2,\,$ \cdots$，表1,\,表2,\, $ \cdots $とします．
-%
-%% 図は，dvipdfmx等を使うことを前提にpdfファイルを取り込みます. extractbbを実行してxbbファイルを作り，
-%% その中のBoundingBoxの値を使うと図が欠けないです.
-%% 実行例) extractbb fig1c.pdf
-%
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[bb =3 3 269 108, scale=0.75]{fig1c.pdf}\par
-%
-\caption{Figure sample}
-\label{fig_sample}
-\end{center}
-\end{figure}
-%
-図\ref{fig_sample}は$\cdots$を表し，表\ref{subject}は被験者属性を示している．
-%
-%図の入れ方(epsファイル使用時)
-%\begin{figure}[htb]
-%\begin{center}
-% \includegraphics[width=○○cm]{ファイル名.eps}
-%\caption{キャプション}
-%\label{ラベル}
-%\end{center}
-%\end{figure}
-%
-\begin{table}[b]
-\begin{center}
-\caption{Subjects' attribution}
-\label{subject}
-\begin{tabular}{|c|c|c|} \hline
-Subject & Age & Gender \\ \hline \hline
-\#1 & 22 yrs & Female  \\ \hline
-\#2 & 24 yrs & Male    \\ \hline
-\end{tabular}
-\end{center}
-\end{table}
-%
-%
 \small
 \begin{thebibliography}{10}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibitem{pLaTeX2e1}
-乙部厳己＋江口庄英: 
-p\LaTeXe\hspace{-2pt} for Windows Another Manual,
-Vol.1, Basic Kit 1999, ソフトバンク (1998).
-%
-\bibitem{pLaTeX2e2}
-乙部厳己＋江口庄英: 
-p\LaTeXe\hspace{-2pt} for Windows Another Manual,
-Vol.2, Extended Kit, ソフトバンク (1997).
-%
-\bibitem{LATEX}
-伊藤和人: 
-LATEXトータルガイド,
-秀和システムトレーディング (1991).
-%
-\bibitem{Latex2eb}
-生田誠三: 
-\LaTeXe\hspace{-3pt} 文典，朝倉書店 (2000).
-%
-\bibitem{TeXWiki}
-奥村晴彦, Japanese TeX Development Community Board: 
-\TeX Wiki, URL: https://texwiki.texjp.org
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{thebibliography}
 \end{document}
