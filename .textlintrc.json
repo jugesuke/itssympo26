@@ -1,6 +1,6 @@
 {
   "plugins": ["latex2e"],
-  "filters": {},
+  "filters": { "comments": true },
   "rules": {
     "preset-japanese": true
   }
