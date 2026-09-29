@@ -8,6 +8,10 @@
    \advance\year by -2002 \the\year\advance\year by 2002}
 %
 \usepackage{fancyhdr}
+
+% Packages
+\usepackage{url}
+
 % dvipdfmx等を使いpdfファイルを作ります。その時にFont埋め込みます。
 % 下行が必要なければ, 削除/コメントアウトしてください。
 \AtBeginDvi{\special{pdf:mapfile dlbase14.map}}
@@ -109,6 +113,6 @@ ITS, A4, Manuscript, LaTeX
 \input{documents/04_提案手法_headsignの構造化.tex}
 %
 \small
-\bibliographystyle{junsrt}
+\bibliographystyle{tipsj}
 \bibliography{references}
 \end{document}
