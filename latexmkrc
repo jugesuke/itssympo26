@@ -9,3 +9,5 @@ $out_dir = './out';
 $ENV{TZ} = 'Asia/Tokyo';
 
 $clean_ext = "dvi run.xml synctex.gz";
+# ログを 79 文字で折り返さない（scrips/check-latex.mjs がファイル名を読めるように）
+$ENV{max_print_line} = '10000';

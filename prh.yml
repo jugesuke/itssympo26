@@ -1,0 +1,11 @@
+version: 1
+rules:
+  # 句読点は「，．」にそろえる
+  - expected: ，
+    pattern: 、
+  - expected: ．
+    pattern: 。
+  # 全角スペースを使わない
+  - expected: " "
+    pattern: "　"
+    prh: 全角スペースが入っています
