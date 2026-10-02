@@ -1,1 +1,47 @@
 \subsection{headsignの構造化}
+\label{subsection:headsign-method}
+\subsubsection{抽出手法}
+headsignをAIエージェントに読み取らせて，行先・経由地・種別を抽出する．
+\cref{fig:headsign-procedure}に手順を示す．
+
+\begin{figure}[t]
+    \centering
+    \setlength{\fboxsep}{8pt}
+    \fbox{%
+        \begin{minipage}{\dimexpr\columnwidth-2\fboxsep-2\fboxrule\relax}
+            \textbf{入力}：GTFSのheadsign\\
+            \textbf{出力}：headsignから抽出した行先・経由地・種別\\
+            \textbf{手順}：
+            
+            \begin{enumerate}
+                \item AIエージェントにheadsignを渡す．
+                \item\label{step:headsign-extract} AIエージェントが，headsignから行先・経由地・種別を抽出する．
+                \item 割り出した行先・経由地が，該当する便が通る実在する停留所名かを検査する．種別は検査しない．
+                \item\label{step:headsign-check} エラーがなければ終了する．
+                      エラーがあれば，そのheadsignをもつ便の停車列をAIエージェントに提示し，\cref{step:headsign-extract}に戻る．
+            \end{enumerate}
+        \end{minipage}%
+    }
+    \caption{headsignの構造化の手順}
+    \label{fig:headsign-procedure}
+\end{figure}
+
+\cref{step:headsign-extract}ではheadsignの文字列のみを与えている．headsignは，バスに掲示されている方向幕に書かれている文字列である．
+方向幕は路上で待つ旅客に見せるための情報であり，そこにある文字列だけで人間が理解できるように作られている．
+そのため，大半の内容はheadsignに書かれた通り読み取れば抽出可能である．
+その便が通る停留所の一覧も根拠として与えることもできるが，AIエージェントの読み取り量が増え，処理時間と読み取りコストが増大する．
+そのため，AIエージェントにはheadsignのみを与え，そこから読み取れる内容だけで解析する．
+AIエージェントが最初から\cref{step:headsign-check}の検査を通過できる完全な正解を出すことを前提としない．
+そうして取り出した情報の正しさを，\cref{step:headsign-check}で検査をし，間違いがあったらその便の停車する停留所の一覧を与える．
+必要な部分だけで追加情報を読み取らせることによって，時間と読み取りコストを削減している． % TODO: コスト差の計測を足す
+
+\subsubsection{限界への対応}
+
+人間はその地域の土地勘を持っている一方，AIエージェントはGTFSに書き込まれている情報しか知らない．
+そのため，読み取れる内容には限界がある．
+経由地には，施設名・道路名・地域名・省略された記法など，停留所名とは一致しないものが書き込まれている場合がある．
+施設名については，施設名の後ろに``\textbf{前}''をつけることで実在する停留所名になる．函館高専\textbf{前}・亀田支所\textbf{前}のような，``\textbf{前}''の部分が省略されている場合がほとんどである． % TODO: 函館バスの例で計る
+一方，道路名・地域名は類似する停留所名が無い場合もある．
+類似する停留所名がある場合は，\textbf{桐花通}を\textbf{桐花通}中央，\textbf{鍛治}線を\textbf{鍛治}団地などのように，類似する停留所名に置き換えた． % TODO: ないときの扱い
+本来このような場合は，旅客から地域名で方面が認識されている以上そのままにするべきだが，GTFSだけでは検証できないため，正確性を優先してエラーとし，AIエージェントによって実在する停留所名に置き換えさせている．
+

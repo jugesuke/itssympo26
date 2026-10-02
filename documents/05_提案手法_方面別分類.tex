@@ -1,1 +1,164 @@
 \subsection{方面別分類}
+
+\subsubsection{分類手法と結果の提示方法}
+
+何らは，複数のGTFS-JPを用いた運行経路別時刻表を作成している~\cite{jscejj.22-00196}．
+何らは，GTFS-JPから抽出した便を運行経路ごとに分類するための手法の一つとして，必須経由箇所を設定する手法を提案している．
+掲載すべき運行を抽出するための条件として，停車地の組み合わせを設定しておく手法である．
+本研究でも，必須経由箇所を設定する手法を用いて便を方面別に分類する．
+
+この手法を適用するには，各方面がどの経路を指すかを決める必要がある．
+しかし，どう便を方面別に分類したかを表現する形式は自明でない．
+そこで，始点となる停留所からの路線網について，停留所の列をトライ木にすることによって表現する．
+トライ木の辺は，行先が分かれない停留所の連なりを1つにまとめた区間とする．
+節点は，便の行先が分かれる箇所と終点だけになる．
+
+始点となる停留所から乗る対象にできる便を絞って路線網を表現する．
+トライ木の辺に対して方面タグを付与することで，経路と方面のペアを示す．
+方面タグを付与した経路を通る便を，その方面に分類する．
+トライ木化した路線網の辺に対して方面のタグを付与することで，それより枝葉方向を走行する便はそのタグで説明される方面となる．
+根方向は，葉方向から集めてきた方面群の共通区間と解釈できる．
+
+
+方面タグによって分類対象となる経路が確定すれば，必須経由箇所はトライ木化から自明に求まる．
+根から順番に分岐の次停留所を必須経由箇所として経由順に列挙して指定することで，経路が一意に定まる．
+% textlint-disable
+必須経由箇所が完全一致してしまい，分類が確定しないパターンが作られることは無い．
+% textlint-enable
+必須経由箇所が一致してしまう場合として，分岐の次停留所が同じになる場合が考えられるが，そのような場合はそもそも共通区間として別の辺として切り出すことになり，生じ得ない．
+この手順により得られるトライ木による分類結果をもとに，必須経由箇所による手法を適用して便分類を行う．
+
+また，出力の形は作業の内容に大きな影響を与える．
+この形式を取ると，AIエージェントは自動生成されたトライ木に対してタグを付与するだけで方面分類ができ，手間が少ない．
+
+\subsubsection{AIエージェントとツール群の役割分担}
+
+本手法では，ツールが得意な領域とAIエージェントが得意な領域を分けて処理を行う．
+ツール群は，GTFSから必要情報の取り出し・路線網のルールベースでの解析・トライ木の生成のような，ルールベースの処理を行う．
+AIエージェントは，路線網の意味的な解釈・方面の判断・方面名の命名などの，判断基準があいまいな処理を担う．
+トライ木は，\texttt{direction-split}ツールによってベースを生成し，AIエージェントがベースに対して方面タグを付与することで最終的な分類結果を作成する．
+
+また，AIエージェントを扱う上では，時間的・金銭的コストについても考慮が必要である．
+例えばClaude Codeの処理にかかるコストは，入力・出力・キャッシュ書込・キャッシュ読込の各トークン数に，それぞれの単価を掛けて合計した額である~\cite{AnthropicPricing}．
+同様に，応答に要する時間も入力・出力のトークン数の影響を受け，モデルの処理・生成するトークンが少ないほど応答は速くなる~\cite{AnthropicReduceLatency}．
+役割分担をすることで，AIに必要以上の入出力をさせないようにし，時間的・金銭的コストを抑える．
+
+\subsubsection{Agent Skillsによる方面分類}
+
+方面をどこで分けるかは，ルールとして書き下すことができない．
+そのため，この判断はAIエージェントに任せる．
+ただし，AIエージェントに何も手法を伝えずに作業をさせても，正確な結果を得られない．
+そこで，``Agent Skills''\footnote{\url{https://agentskills.io/}}という，AIエージェントに専門知識を与えて拡張する機能を使う．
+Agent Skillsはエージェントが読む指示として与えられる．
+Agent Skillsに書いた指示内容は数百行におよぶため紙幅の都合で割愛するが，\cref{fig:skills}のような流れで行うことを記述している．
+具体的な内容は以下の通りである．
+% textlint-disable
+\begin{enumerate}
+    \item \textbf{対象の停留所を確認する}：与えられた設定に問題がないか確認する．
+    \item \textbf{行先表示を読み解く}：\cref{subsection:headsign-method}で述べた処理と同じ．
+    \item \textbf{便の分かれ方を調べる}：この停留所を出た便が，どこまで一緒に走り，どこで別々の行先に分かれるか，枝分かれの図にする．
+    \item\label{step:direction-split} \textbf{方面を切る}：枝分かれのどこで方面を分けるかを決め，方面タグを付与する．
+          判断基準は「その方面の便がどこを通ってどこへ行くかを，ひとことで説明できるか」である．
+          分かれる前の区間に，目印になる停留所があればまとめる．
+          無ければさらに方面を分ける．
+    \item \textbf{方面名を選ぶ}：事業者が行先表示に書いている語のうち，その方面のほとんどの便が通る停留所名を選ぶ．
+          データに無い言葉は使わない．
+          名前が決まらないときは，方面の分け方を疑って\cref{step:direction-split}に戻る．
+    \item \textbf{主な経由地を添える}：``桔梗・七飯 方面''のように，同じ道筋に並ぶ停留所名を通る順に並べる．
+          別々の道にある停留所を並べると，どちらも通らない便が出るので並べない．
+\end{enumerate}
+% textlint-enable
+\begin{figure}[t]
+    \centering
+    \setlength{\fboxsep}{8pt}
+    \fbox{%
+        \begin{minipage}{\dimexpr\columnwidth-2\fboxsep-2\fboxrule\relax}
+            \textbf{入力}：GTFS / 始点となる停留所のstop\_id / 同じ停留所とみなす距離\\
+            \textbf{出力}：方面定義ファイル\\
+            \textbf{手順}：
+
+            \centering
+            \begin{tikzpicture}[
+                    node distance=4mm,
+                    proc/.style={draw, rounded corners=2pt, align=center,
+                            minimum width=4.2cm, minimum height=2em, font=\small},
+                    dec/.style={draw, diamond, aspect=3.2, inner sep=0pt,
+                            align=center, font=\scriptsize},
+                    term/.style={draw, rounded corners=0.8em, minimum height=1.6em,
+                            inner xsep=8pt, fill=black!10, font=\small},
+                    flow/.style={-{Stealth[length=5pt]}, thick},
+                    lbl/.style={font=\scriptsize, inner sep=1.5pt, align=center},
+                ]
+                \node[term] (start) {開始};
+                \node[proc, below=of start] (s1) {1. 対象の停留所を決める};
+                \node[proc, below=of s1] (s2) {2. 行先表示を読み解く};
+                \node[dec, below=of s2] (c2) {書いた停留所名は\\その便の経路に実在するか};
+                \node[proc, below=of c2] (s3) {3. 便の分かれ方を調べる};
+                \node[proc, below=of s3] (s4) {4. 方面を切る};
+                \node[dec, below=of s4] (c4) {すべての便が\\どれかの方面に入ったか};
+                \node[proc, below=of c4] (s5) {5. 方面名を選ぶ};
+                \node[dec, below=8mm of s5] (c5) {名前が決まるか};
+                \node[proc, below=of c5] (s6) {6. 主な経由地を添える};
+                \node[proc, below=of s6] (e) {方面と方面名が決まる};
+                \node[term, below=of e] (end) {終了};
+
+                \draw[flow] (start) -- (s1);
+                \draw[flow] (s1) -- (s2);
+                \draw[flow] (s2) -- (c2);
+                \draw[flow] (c2) -- node[lbl, right] {はい} (s3);
+                \draw[flow] (s3) -- (s4);
+                \draw[flow] (s4) -- (c4);
+                \draw[flow] (c4) -- node[lbl, right] {はい} (s5);
+                \draw[flow] (s5) -- (c5);
+                \draw[flow] (c5) -- node[lbl, right] {はい} (s6);
+                \draw[flow] (s6) -- (e);
+                \draw[flow] (e) -- (end);
+
+                % 「いいえ」で戻る線は，箱の外側を回す
+                \draw[flow] (c2.east) -- node[lbl, below, pos=0.5] {いいえ：\\書き直す}
+                    ++(1.5, 0) |- (s2.east);
+                \draw[flow] (c4.east) -- node[lbl, below, pos=0.5] {いいえ：\\切り方を直す}
+                    ++(1.6, 0) |- (s4.east);
+                \draw[flow] (c5.west) -- node[lbl, above left, pos=0] {いいえ：分け方が\\粗いか細かい}
+                    ++(-2.1, 0) |- (s4.west);
+            \end{tikzpicture}
+        \end{minipage}%
+    }
+    \caption{方面分類Skillsの手順}
+    \label{fig:skills}
+\end{figure}
+
+\subsubsection{GTFS解析ツール}
+
+手順の中で必要となる情報をGTFSから取り出す．
+AIエージェントがスクリプトをその都度書き，GTFSファイルから直接情報を取り出すこともできる．
+しかし正しく情報を取り出すためには，GTFSの仕様に沿って処理する必要がある．
+また，毎回同じようなスクリプトを生成することになり，効率が悪い．
+そこで，事前に作成したGTFS解析ツールをAIエージェントに使わせる．
+作成したツールは\cref{tab:tools}に示す通り．
+
+% textlint-disable
+\begin{table}[tb]
+    \centering
+    \caption{GTFS解析ツールのコマンド}
+    \label{tab:tools}
+    \footnotesize
+    \begin{tabular}{@{}l@{\hspace{4pt}}c@{\hspace{4pt}}p{\dimexpr0.6\columnwidth-20pt\relax}@{}}
+        \toprule
+        コマンド & 手順 & 出す情報 \\
+        \midrule
+        \texttt{stop-distances} & 1 & 同じ停留所に属するのりばどうしの距離（全組） \\
+        \texttt{revisit} & 1 & 1つの便が同じ停留所ののりばに続けて停まる組と，その距離・発車時刻の差 \\
+        \texttt{departures} & 1 & 対象ののりばから発車する便．除外した便の数を理由別に出せる \\
+        \texttt{headsign-variants} & 2 & 対象ののりばから出る便のheadsign（重複なし） \\
+        \texttt{headsign-table-check} & 2 & headsignの対応表の検査結果（書いた停留所名が経路に実在するか，載せ漏れが無いか） \\
+        \texttt{headsign-sequence} & 2,4 & 指定したheadsignの便が，対象ののりばから先に通る経路 \\
+        \texttt{route-name} & 2 & 系統名 \\
+        \texttt{direction-split} & 3 & 対象ののりばから出る全便を，停車列が分かれるところで枝分かれさせた木 \\
+        \texttt{hub-score} & 4,5,6 & 停留所の拠点性（通る系統数，発着便数，のりば数）と，網の中での順位 \\
+        \texttt{name-candidates} & 4,5 & 方面ごとの方面名の候補語と，それがheadsignに出る便数・それを通る便数．全便がどれかの方面に入っているかの検査結果 \\
+        \texttt{via-stops} & 6 & 停留所を方面の経路順に並べた木と，それぞれを通る便数 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% textlint-enable

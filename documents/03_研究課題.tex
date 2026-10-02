@@ -3,13 +3,14 @@ GTFSを利用して，バスサイネージシステムに必要な情報を自�
 GTFSでは，運行情報そのものは構造化されている一方で，バス利用者向けの意味情報がすべて構造化されているわけではない．
 
 \subsection{headsignの構造化}
+\label{subsection:headsign}
 GTFSには，便の行先を表すtrip\_headsign・stop\_headsignというフィールドが存在する（以降2つをまとめて``headsign''とする）．
 trip\_headsignは便全体の基本となる行先表示であり，stop\_headsignは特定の停留所でそれを上書き表示するものである．
 GTFS-JPでは，車両の方向幕の表示を設定することを原則とし，急行・直通等の種別がある場合は行先に加えて種別を併記することになっている~\cite{GTFSJPv4}．
 このフィールドには方向幕に書かれている文字列がそのまま書き込まれ，主に行先・経由・種別の3情報が含まれる．
 これらの情報は，バスサイネージシステムの設定を最適化する上で有益であるため，構造化して取り出したい．
 しかしGTFS仕様ではheadsign文字列の内部構造は規定されておらず，事業者によって表記方法が異なる．
-表\ref{tab:headsign}に，事業者ごとのheadsignの表記例と，そこから読み取れる行先・経由地・種別を示す．
+\cref{tab:headsign}に，事業者ごとのheadsignの表記例と，そこから読み取れる行先・経由地・種別を示す．
 
 % textlint-disable
 \begin{table*}[tb]
@@ -80,4 +81,13 @@ GTFSを公開する全事業者に対して抽出条件を事前に用意する�
 \begin{itemize}
     \item headsignの文字列から利用者向けの意味情報を抽出する
     \item GTFSに直接存在しない「方面」を路線網から分類する
+\end{itemize}
+
+\subsection{本研究で利用する環境}
+
+本研究では，以下の環境で作業を行った．
+
+\begin{itemize}
+    \item Debian GNU/Linux 13 (trixie) x86\_64
+    \item Claude Code
 \end{itemize}
