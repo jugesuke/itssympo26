@@ -1,0 +1,119 @@
+\section{評価}
+
+% textlint-disable
+\begin{table}[tb]
+    \centering
+    \caption{headsignの構造化の結果}
+    \label{tab:headsign-result}
+    \scriptsize
+    \begin{tabular}{lrr}
+        \toprule
+        項目 & 青森市営バス & 函館バス \\
+        \midrule
+        headsign数 & 82 & 69 \\
+        検査の回数 & 3 & 2 \\
+        1回目の検査で落ちた行 & 40 & 41 \\
+        2回目の検査で落ちた行 & 18 & 0 \\
+        処理時間（合計）[s] & 159 & 120 \\
+        費用 [USD] & 0.91 & 0.73 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% textlint-enable
+
+% textlint-disable
+\begin{table}[tb]
+    \centering
+    \caption{函館バスで検査に落ちた語の分類}
+    \label{tab:headsign-error-goryokaku}
+    \scriptsize
+    \begin{tabular}{lrp{0.55\linewidth}}
+        \toprule
+        分類 & 件数 & 例 \\
+        \midrule
+        ``前''の省略 & 42 & 亀田支所→亀田支所前，湯倉神社→湯倉神社前，ガス会社→ガス会社前 \\
+        略称 & 17 & 函病→市立函館病院，市函→市立函館高校前，渡島振興局→渡島総合振興局前，新駅→新函館北斗駅 \\
+        道路名・地域名 & 11 & 桐花通→桐花通中央，鍛治線→削除，臨空工業団地→臨空工業団地通 \\
+        その他 & 2 & なないろななえ→道の駅なないろ・ななえ，行先から蔦屋書店前を分けて経由地へ移動 \\
+        \midrule
+        合計 & 72 & \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% textlint-enable
+
+% textlint-disable
+\begin{table}[tb]
+    \centering
+    \caption{方面別分類の結果}
+    \label{tab:direction-result}
+    \scriptsize
+    \begin{tabular}{p{0.52\linewidth}rr}
+        \toprule
+        項目 & 八戸市営バス & 函館バス \\
+        \midrule
+        対象の停留所 & \begin{tabular}[t]{@{}r@{}}八戸中心街\\ターミナル\end{tabular} & 亀田支所前 \\
+        対象の便数 & 1,728 & 495 \\
+        分岐の木のノード数 & 113 & 60 \\
+        方面を付けたノード数 & 20 & 5 \\
+        方面の定義の編集回数 & 23 & 6 \\
+        対応表の検査の回数 & 3 & 2 \\
+        対応表の1回目の検査で落ちた行 & 15 & 19 \\
+        方面の定義が初めて検査に通った回 & 1回目 & 1回目 \\
+        手順4に戻った回数 & 0 & 0 \\
+        方面の数（事業者側の数） & 12（12） & 5（5） \\
+        事業者の分類と1対1で一致した方面 & 7 & 2 \\
+        GTFSを直接読むスクリプトを書いた回数 & 0 & 0 \\
+        処理時間（合計）[s] & 438 & 319 \\
+        費用 [USD] & 2.11 & 1.51 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% textlint-enable
+
+% textlint-disable
+\begin{table}[tb]
+    \centering
+    \caption{八戸市営バスの八戸中心街ターミナルにおける方面の比較}
+    \label{tab:direction-hachinohe}
+    \scriptsize
+    \begin{tabular}{p{0.3\linewidth}p{0.34\linewidth}p{0.18\linewidth}}
+        \toprule
+        LLMの方面名 & 事業者の方面（便数） & 一致 \\
+        \midrule
+        館花下・旭ヶ丘営業所 方面 & A 旭ヶ丘・大学方面（152） & 一致 \\
+        市民病院・旭ヶ丘団地 方面 & S 市民病院方面（133） & 一致 \\
+        斎場前・是川団地 方面 & J 縄文・是川方面（93） & 一致 \\
+        根城六丁目・根城大橋 方面 & N 根城大橋方面（123） & 一致 \\
+        西売市・河原木団地・多賀台団地 方面 & K 桔梗野方面（82） & 一致 \\
+        大杉平バスセンター 方面 & F 二ツ家・南郷方面（257） & 一致 \\
+        十三日町 方面 & C 八戸中心街ターミナル（10） & 一致 \\
+        聖ウルスラ学院・八戸ニュータウン 方面 & T 田面木方面（79）＋W 白山浄水場・ニュータウン方面（46） & 2つをまとめた \\
+        上柳町・労災病院通 方面 & M 湊・鮫・岬台団地方面（190）＋Y 柳橋・平庭方面（32） & Mの一部とYをまとめた \\
+        白銀 方面 & M 湊・鮫・岬台団地方面（42）＋記号なし（8） & Mを分けた \\
+        本八戸駅 方面 & H 八太郎方面（111）＋P ピアドゥ・ラピア方面（169）＋190円循環（96） & HとPの一部をまとめた \\
+        栄町・ラピア 方面 & P ピアドゥ・ラピア方面（105） & Pを分けた \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% textlint-enable
+
+% textlint-disable
+\begin{table}[tb]
+    \centering
+    \caption{函館バスの亀田支所前における方面とのりばの比較}
+    \label{tab:direction-kamedashisho}
+    \scriptsize
+    \begin{tabular}{p{0.28\linewidth}ll}
+        \toprule
+        LLMの方面名 & のりば（便数） & 一致 \\
+        \midrule
+        五稜郭・函館駅前 方面 & \textcircled{2}（169） & 一致 \\
+        東山団地 方面 & \textcircled{4}（83） & 一致 \\
+        渡島総合振興局前・美原台団地 方面 & \textcircled{1}（51） & \textcircled{1}を分けた \\
+        はこだて未来大学・赤川 方面 & \textcircled{1}（33） & \textcircled{1}を分けた \\
+        昭和ターミナル 方面 & \textcircled{3}（27）＋\textcircled{5}（132） & 2つをまとめた \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% textlint-enable

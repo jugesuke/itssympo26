@@ -1,0 +1,1090 @@
+{
+  "headsign_table": {
+    "headsigns": 49,
+    "first_output": {
+      "rows": 49,
+      "destinations": 27,
+      "via_total": 97,
+      "via_distinct": 37,
+      "rows_with_category": 45,
+      "categories": [
+        "190円 市内循環線（右回り）",
+        "Ａ27",
+        "Ａ34",
+        "Ａ3",
+        "Ｆ1",
+        "Ｆ4",
+        "Ｈ55",
+        "Ｈ58 循環",
+        "Ｈ58",
+        "Ｈ59",
+        "Ｊ40",
+        "Ｋ67",
+        "Ｋ68 循環",
+        "Ｋ68",
+        "Ｍ10",
+        "Ｍ12",
+        "Ｍ15",
+        "Ｍ20",
+        "Ｍ24",
+        "Ｍ30",
+        "Ｎ60",
+        "Ｎ61",
+        "Ｎ63",
+        "Ｐ50",
+        "Ｐ51",
+        "Ｐ8",
+        "Ｓ30",
+        "Ｓ31",
+        "Ｓ32",
+        "Ｓ34",
+        "Ｔ71",
+        "Ｔ71 循環",
+        "Ｗ75 循環",
+        "Ｗ75",
+        "Ｙ26"
+      ]
+    },
+    "final_output": {
+      "rows": 49,
+      "destinations": 27,
+      "via_total": 96,
+      "via_distinct": 36,
+      "rows_with_category": 45,
+      "categories": [
+        "190円 市内循環線（右回り）",
+        "Ａ27",
+        "Ａ34",
+        "Ａ3",
+        "Ｆ1",
+        "Ｆ4",
+        "Ｈ55",
+        "Ｈ58 循環",
+        "Ｈ58",
+        "Ｈ59",
+        "Ｊ40",
+        "Ｋ67",
+        "Ｋ68 循環",
+        "Ｋ68",
+        "Ｍ10",
+        "Ｍ12",
+        "Ｍ15",
+        "Ｍ20",
+        "Ｍ24",
+        "Ｍ30",
+        "Ｎ60",
+        "Ｎ61",
+        "Ｎ63",
+        "Ｐ50",
+        "Ｐ51",
+        "Ｐ8",
+        "Ｓ30",
+        "Ｓ31",
+        "Ｓ32",
+        "Ｓ34",
+        "Ｔ71",
+        "Ｔ71 循環",
+        "Ｗ75 循環",
+        "Ｗ75",
+        "Ｙ26"
+      ]
+    },
+    "checks": [
+      {
+        "round": 1,
+        "at": "2026-10-03T01:20:03.547Z",
+        "passed": false,
+        "output_chars": 2938,
+        "checked_version": 0,
+        "failed_rows": 15,
+        "errors_by_kind": {
+          "実在しない名前": 15,
+          "八戸中心街ターミナル（六日町）→十六日町→十三日町": 1,
+          "八戸中心街ターミナル（六日町）→十六日町→十三日町→八戸中心街ターミナル（三日町）→八戸中心街ターミナル（八日町）": 1
+        }
+      },
+      {
+        "round": 2,
+        "at": "2026-10-03T01:20:41.532Z",
+        "passed": true,
+        "output_chars": 213,
+        "checked_version": 1,
+        "failed_rows": 0,
+        "errors_by_kind": {}
+      },
+      {
+        "round": 3,
+        "at": "2026-10-03T01:26:10.412Z",
+        "passed": false,
+        "output_chars": 7661,
+        "checked_version": 1,
+        "failed_rows": 58,
+        "errors_by_kind": {
+          "--version              Show version number  [boolean]": 1,
+          "--help                 Show help  [boolean]": 1,
+          "--db                   GTFS を取り込んだ SQLite ファイルのパス  [string] [required]": 1,
+          "--target               対象の指定（stop_ids と same_place_radius_m の YAML）のパス  [string]": 1,
+          "--stop-id              対象の乗り場の stop_id（複数指定できる）。--target と排他  [array]": 1,
+          "--same-place-radius-m  歩いて乗り直せる同じ場所とみなす距離（m）。この距離以内の乗り場への再訪で停車列を切る。--target と排他  [number]": 1,
+          "--definition           方面の定義（T11 の出力に方面キーを足した YAML）のパス  [string] [required]": 1,
+          "--table                行先表示の対応表（T8 の JSONL）のパス  [string] [required]": 1,
+          "--target のファイル（YAML）": 1,
+          "stop_ids": 1,
+          "same_place_radius_m": 1,
+          "direction / word / source / via_trips / destination_trips /": 1,
+          "passing_trips / direction_trips / route_count / visit_count / platform_count /": 1,
+          "duplicated_directions / distance_m": 1,
+          "via_trips / destination_trips  その語が経由地／行先として行先表示に現れた便数（案内語の強さ）": 1,
+          "passing_trips / direction_trips  その語の停留所を通る便数／その方面の便数（網羅性）": 1,
+          "duplicated_directions          同じ語が候補に立っている他の方面キー。無ければ空": 1,
+          "distance_m                     対象停留所からの距離": 1,
+          "route_count 等                 拠点性（T12）。候補語が停留所名に当たるときだけ埋まる": 1,
+          "direction                        そのノードの配下を通る便が属する方面キー": 1,
+          "direction_terminating_here  区間の末尾で終わる便が属する方面キー": 1,
+          "方面キーは無機質な識別子（A・B・数字）にする。地名らしい語を入れない": 1,
+          "（方面名を決めるのは後の段で、キーが判断材料になってはいけない）。": 1,
+          "合体は複数のノードに同じキーを書く。分割はより深いノードにキーを書く。": 1,
+          "キーを付けたノードの配下に別のキーを置かない（入れ子は禁止）。": 1,
+          "木の全体を保存する。枝が書かれていてキーが無いことは、その分岐を見たうえで": 1,
+          "「まとめる」と判断した記録になる。": 1,
+          "案内語の強さ（via_trips + destination_trips）と網羅性（passing / direction）。": 1,
+          "両方を満たす語があればそれが最良。両立しないときは選択になる。": 1,
+          "網羅性だけの語（全便が通るが誰も呼ばない語）を採ると、掲示の見出しと、": 1,
+          "その下に並ぶ行先表示のどこにも同じ語が出てこない状態になる。": 1,
+          "最多語が過半数に届かないときは、名前選びの前に分割不足を疑う。": 1,
+          "行先表示に現れない語（案内語が0の語）は表に載せない。ただしその方面に案内語が": 1,
+          "1つも無いときは落とさない（stop_headsign が無いフィードでは拠点性で選ぶため）。": 1,
+          "重複列が立った語は、その相手の方面と取り合いになる。両方では採れない。": 1,
+          "距離が近すぎる語は方向を示す語として弱い（分岐の直後にある停留所など）。": 1,
+          "方角の列は持たない。方角は停留所名にも行先表示にも現れない語で、掲示に出せば創作になる。": 1,
+          "どの方面にも入らない便があれば、表を作らずエラーで止める。": 1,
+          "定義の木と実データの木が食い違ってもエラーで止める（まだ見ていない分岐があるため）。": 1
+        }
+      }
+    ],
+    "fixes": {
+      "writes": 2,
+      "edits": 0
+    },
+    "final_passed": false,
+    "errors": [
+      {
+        "round": 1,
+        "headsign": "[Ａ34]工業大学（館花下・旭ヶ丘営業所経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ａ34]工業大学（館花下・旭ヶ丘営業所経由）",
+          "destination": "工業大学",
+          "via": [
+            "館花下",
+            "旭ヶ丘営業所"
+          ],
+          "category": "Ａ34"
+        },
+        "row_after": {
+          "headsign": "[Ａ34]工業大学（館花下・旭ヶ丘営業所経由）",
+          "destination": "工業大学前",
+          "via": [
+            "館花下",
+            "旭ヶ丘営業所"
+          ],
+          "category": "Ａ34"
+        },
+        "word": "工業大学"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｈ55]河原木団地（南口）（本八戸駅・八太郎・小田前経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｈ55]河原木団地（南口）（本八戸駅・八太郎・小田前経由）",
+          "destination": "河原木団地（南口）",
+          "via": [
+            "本八戸駅",
+            "八太郎",
+            "小田前"
+          ],
+          "category": "Ｈ55"
+        },
+        "row_after": {
+          "headsign": "[Ｈ55]河原木団地（南口）（本八戸駅・八太郎・小田前経由）",
+          "destination": "河原木団地南口",
+          "via": [
+            "本八戸駅",
+            "八太郎",
+            "小田前"
+          ],
+          "category": "Ｈ55"
+        },
+        "word": "河原木団地（南口）"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｍ10]鮫（白銀経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｍ10]鮫（白銀経由）",
+          "destination": "鮫",
+          "via": [
+            "白銀"
+          ],
+          "category": "Ｍ10"
+        },
+        "row_after": {
+          "headsign": "[Ｍ10]鮫（白銀経由）",
+          "destination": "鮫小学校通",
+          "via": [
+            "白銀"
+          ],
+          "category": "Ｍ10"
+        },
+        "word": "鮫"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｍ10]鮫（館鼻漁港前・白銀経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｍ10]鮫（館鼻漁港前・白銀経由）",
+          "destination": "鮫",
+          "via": [
+            "館鼻漁港前",
+            "白銀"
+          ],
+          "category": "Ｍ10"
+        },
+        "row_after": {
+          "headsign": "[Ｍ10]鮫（館鼻漁港前・白銀経由）",
+          "destination": "鮫小学校通",
+          "via": [
+            "館鼻漁港前",
+            "白銀"
+          ],
+          "category": "Ｍ10"
+        },
+        "word": "鮫"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｍ12]高等支援学校（上柳町・労災病院通経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｍ12]高等支援学校（上柳町・労災病院通経由）",
+          "destination": "高等支援学校",
+          "via": [
+            "上柳町",
+            "労災病院通"
+          ],
+          "category": "Ｍ12"
+        },
+        "row_after": {
+          "headsign": "[Ｍ12]高等支援学校（上柳町・労災病院通経由）",
+          "destination": "高等支援学校前",
+          "via": [
+            "上柳町",
+            "労災病院通"
+          ],
+          "category": "Ｍ12"
+        },
+        "word": "高等支援学校"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｍ12]高等支援学校（白銀経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｍ12]高等支援学校（白銀経由）",
+          "destination": "高等支援学校",
+          "via": [
+            "白銀"
+          ],
+          "category": "Ｍ12"
+        },
+        "row_after": {
+          "headsign": "[Ｍ12]高等支援学校（白銀経由）",
+          "destination": "高等支援学校前",
+          "via": [
+            "白銀"
+          ],
+          "category": "Ｍ12"
+        },
+        "word": "高等支援学校"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｍ20]鮫（上柳町・労災病院通経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｍ20]鮫（上柳町・労災病院通経由）",
+          "destination": "鮫",
+          "via": [
+            "上柳町",
+            "労災病院通"
+          ],
+          "category": "Ｍ20"
+        },
+        "row_after": {
+          "headsign": "[Ｍ20]鮫（上柳町・労災病院通経由）",
+          "destination": "鮫小学校通",
+          "via": [
+            "上柳町",
+            "労災病院通"
+          ],
+          "category": "Ｍ20"
+        },
+        "word": "鮫"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｎ61]中央市場（八食センター）（図書館前・根城六丁目・根城大橋経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｎ61]中央市場（八食センター）（図書館前・根城六丁目・根城大橋経由）",
+          "destination": "中央市場（八食センター）",
+          "via": [
+            "図書館前",
+            "根城六丁目",
+            "根城大橋"
+          ],
+          "category": "Ｎ61"
+        },
+        "row_after": {
+          "headsign": "[Ｎ61]中央市場（八食センター）（図書館前・根城六丁目・根城大橋経由）",
+          "destination": "中央市場",
+          "via": [
+            "図書館前",
+            "根城六丁目",
+            "根城大橋"
+          ],
+          "category": "Ｎ61"
+        },
+        "word": "中央市場（八食センター）"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｎ61]中央市場（八食センター）（根城六丁目・根城大橋・卸センター経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｎ61]中央市場（八食センター）（根城六丁目・根城大橋・卸センター経由）",
+          "destination": "中央市場（八食センター）",
+          "via": [
+            "根城六丁目",
+            "根城大橋",
+            "卸センター"
+          ],
+          "category": "Ｎ61"
+        },
+        "row_after": {
+          "headsign": "[Ｎ61]中央市場（八食センター）（根城六丁目・根城大橋・卸センター経由）",
+          "destination": "中央市場",
+          "via": [
+            "根城六丁目",
+            "根城大橋",
+            "卸センター"
+          ],
+          "category": "Ｎ61"
+        },
+        "word": "中央市場（八食センター）"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｎ61]中央市場（八食センター）（根城六丁目・根城大橋経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｎ61]中央市場（八食センター）（根城六丁目・根城大橋経由）",
+          "destination": "中央市場（八食センター）",
+          "via": [
+            "根城六丁目",
+            "根城大橋"
+          ],
+          "category": "Ｎ61"
+        },
+        "row_after": {
+          "headsign": "[Ｎ61]中央市場（八食センター）（根城六丁目・根城大橋経由）",
+          "destination": "中央市場",
+          "via": [
+            "根城六丁目",
+            "根城大橋"
+          ],
+          "category": "Ｎ61"
+        },
+        "word": "中央市場（八食センター）"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｎ63]八戸駅・西高校（根城六丁目・根城大橋経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｎ63]八戸駅・西高校（根城六丁目・根城大橋経由）",
+          "destination": "西高校",
+          "via": [
+            "根城六丁目",
+            "根城大橋",
+            "八戸駅"
+          ],
+          "category": "Ｎ63"
+        },
+        "row_after": {
+          "headsign": "[Ｎ63]八戸駅・西高校（根城六丁目・根城大橋経由）",
+          "destination": "西高校前",
+          "via": [
+            "根城六丁目",
+            "根城大橋",
+            "八戸駅"
+          ],
+          "category": "Ｎ63"
+        },
+        "word": "西高校"
+      },
+      {
+        "round": 1,
+        "headsign": "[Ｓ34]工業大学（市民病院・旭ヶ丘団地経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "[Ｓ34]工業大学（市民病院・旭ヶ丘団地経由）",
+          "destination": "工業大学",
+          "via": [
+            "市民病院",
+            "旭ヶ丘団地"
+          ],
+          "category": "Ｓ34"
+        },
+        "row_after": {
+          "headsign": "[Ｓ34]工業大学（市民病院・旭ヶ丘団地経由）",
+          "destination": "工業大学前",
+          "via": [
+            "市民病院",
+            "旭ヶ丘団地"
+          ],
+          "category": "Ｓ34"
+        },
+        "word": "工業大学"
+      },
+      {
+        "round": 1,
+        "headsign": "中心街",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "中心街",
+          "destination": "中心街",
+          "via": []
+        },
+        "row_after": {
+          "headsign": "中心街",
+          "destination": "十三日町",
+          "via": []
+        },
+        "word": "中心街"
+      },
+      {
+        "round": 1,
+        "headsign": "中心街",
+        "kind": "八戸中心街ターミナル（六日町）→十六日町→十三日町",
+        "row_before": {
+          "headsign": "中心街",
+          "destination": "中心街",
+          "via": []
+        },
+        "row_after": {
+          "headsign": "中心街",
+          "destination": "十三日町",
+          "via": []
+        },
+        "word": null
+      },
+      {
+        "round": 1,
+        "headsign": "中心街（八日町）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "中心街（八日町）",
+          "destination": "八日町",
+          "via": []
+        },
+        "row_after": {
+          "headsign": "中心街（八日町）",
+          "destination": "八戸中心街ターミナル（八日町）",
+          "via": []
+        },
+        "word": "八日町"
+      },
+      {
+        "round": 1,
+        "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+          "destination": "八日町",
+          "via": [
+            "陸奥湊駅前"
+          ]
+        },
+        "row_after": {
+          "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+          "destination": "八戸中心街ターミナル（八日町）",
+          "via": []
+        },
+        "word": "八日町"
+      },
+      {
+        "round": 1,
+        "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+          "destination": "八日町",
+          "via": [
+            "陸奥湊駅前"
+          ]
+        },
+        "row_after": {
+          "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+          "destination": "八戸中心街ターミナル（八日町）",
+          "via": []
+        },
+        "word": "陸奥湊駅前"
+      },
+      {
+        "round": 1,
+        "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+        "kind": "八戸中心街ターミナル（六日町）→十六日町→十三日町→八戸中心街ターミナル（三日町）→八戸中心街ターミナル（八日町）",
+        "row_before": {
+          "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+          "destination": "八日町",
+          "via": [
+            "陸奥湊駅前"
+          ]
+        },
+        "row_after": {
+          "headsign": "中心街（八日町）（陸奥湊駅前経由）",
+          "destination": "八戸中心街ターミナル（八日町）",
+          "via": []
+        },
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "Options:",
+        "kind": "--version              Show version number  [boolean]",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "Options:",
+        "kind": "--help                 Show help  [boolean]",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "Options:",
+        "kind": "--db                   GTFS を取り込んだ SQLite ファイルのパス  [string] [required]",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "Options:",
+        "kind": "--target               対象の指定（stop_ids と same_place_radius_m の YAML）のパス  [string]",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "Options:",
+        "kind": "--stop-id              対象の乗り場の stop_id（複数指定できる）。--target と排他  [array]",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "Options:",
+        "kind": "--same-place-radius-m  歩いて乗り直せる同じ場所とみなす距離（m）。この距離以内の乗り場への再訪で停車列を切る。--target と排他  [number]",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "Options:",
+        "kind": "--definition           方面の定義（T11 の出力に方面キーを足した YAML）のパス  [string] [required]",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "Options:",
+        "kind": "--table                行先表示の対応表（T8 の JSONL）のパス  [string] [required]",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "対象の指定: --target か、--stop-id と --same-place-radius-m の組。排他（両方はエラー）。",
+        "kind": "--target のファイル（YAML）",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "対象の指定: --target か、--stop-id と --same-place-radius-m の組。排他（両方はエラー）。",
+        "kind": "stop_ids",
+        "row_before": null,
+        "row_after": null,
+        "word": "[ 19019_1"
+      },
+      {
+        "round": 3,
+        "headsign": "対象の指定: --target か、--stop-id と --same-place-radius-m の組。排他（両方はエラー）。",
+        "kind": "stop_ids",
+        "row_before": null,
+        "row_after": null,
+        "word": "19019_2"
+      },
+      {
+        "round": 3,
+        "headsign": "対象の指定: --target か、--stop-id と --same-place-radius-m の組。排他（両方はエラー）。",
+        "kind": "stop_ids",
+        "row_before": null,
+        "row_after": null,
+        "word": "19019_7 ]"
+      },
+      {
+        "round": 3,
+        "headsign": "対象の指定: --target か、--stop-id と --same-place-radius-m の組。排他（両方はエラー）。",
+        "kind": "same_place_radius_m",
+        "row_before": null,
+        "row_after": null,
+        "word": "50"
+      },
+      {
+        "round": 3,
+        "headsign": "出力: TSV。方面 × 候補語で1行。列は",
+        "kind": "direction / word / source / via_trips / destination_trips /",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "出力: TSV。方面 × 候補語で1行。列は",
+        "kind": "passing_trips / direction_trips / route_count / visit_count / platform_count /",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "出力: TSV。方面 × 候補語で1行。列は",
+        "kind": "duplicated_directions / distance_m",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "出力: TSV。方面 × 候補語で1行。列は",
+        "kind": "via_trips / destination_trips  その語が経由地／行先として行先表示に現れた便数（案内語の強さ）",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "出力: TSV。方面 × 候補語で1行。列は",
+        "kind": "passing_trips / direction_trips  その語の停留所を通る便数／その方面の便数（網羅性）",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "出力: TSV。方面 × 候補語で1行。列は",
+        "kind": "duplicated_directions          同じ語が候補に立っている他の方面キー。無ければ空",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "出力: TSV。方面 × 候補語で1行。列は",
+        "kind": "distance_m                     対象停留所からの距離",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "出力: TSV。方面 × 候補語で1行。列は",
+        "kind": "route_count 等                 拠点性（T12）。候補語が停留所名に当たるときだけ埋まる",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。",
+        "kind": "direction                        そのノードの配下を通る便が属する方面キー",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。",
+        "kind": "direction_terminating_here  区間の末尾で終わる便が属する方面キー",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。",
+        "kind": "方面キーは無機質な識別子（A・B・数字）にする。地名らしい語を入れない",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。",
+        "kind": "（方面名を決めるのは後の段で、キーが判断材料になってはいけない）。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。",
+        "kind": "合体は複数のノードに同じキーを書く。分割はより深いノードにキーを書く。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。",
+        "kind": "キーを付けたノードの配下に別のキーを置かない（入れ子は禁止）。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。",
+        "kind": "木の全体を保存する。枝が書かれていてキーが無いことは、その分岐を見たうえで",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。",
+        "kind": "「まとめる」と判断した記録になる。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "読み方: 候補語は2つの軸で評価する。",
+        "kind": "案内語の強さ（via_trips + destination_trips）と網羅性（passing / direction）。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "読み方: 候補語は2つの軸で評価する。",
+        "kind": "両方を満たす語があればそれが最良。両立しないときは選択になる。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "読み方: 候補語は2つの軸で評価する。",
+        "kind": "網羅性だけの語（全便が通るが誰も呼ばない語）を採ると、掲示の見出しと、",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "読み方: 候補語は2つの軸で評価する。",
+        "kind": "その下に並ぶ行先表示のどこにも同じ語が出てこない状態になる。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "読み方: 候補語は2つの軸で評価する。",
+        "kind": "最多語が過半数に届かないときは、名前選びの前に分割不足を疑う。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "注意:",
+        "kind": "行先表示に現れない語（案内語が0の語）は表に載せない。ただしその方面に案内語が",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "注意:",
+        "kind": "1つも無いときは落とさない（stop_headsign が無いフィードでは拠点性で選ぶため）。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "注意:",
+        "kind": "重複列が立った語は、その相手の方面と取り合いになる。両方では採れない。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "注意:",
+        "kind": "距離が近すぎる語は方向を示す語として弱い（分岐の直後にある停留所など）。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "注意:",
+        "kind": "方角の列は持たない。方角は停留所名にも行先表示にも現れない語で、掲示に出せば創作になる。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "注意:",
+        "kind": "どの方面にも入らない便があれば、表を作らずエラーで止める。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      },
+      {
+        "round": 3,
+        "headsign": "注意:",
+        "kind": "定義の木と実データの木が食い違ってもエラーで止める（まだ見ていない分岐があるため）。",
+        "row_before": null,
+        "row_after": null,
+        "word": null
+      }
+    ]
+  },
+  "directions": {
+    "definition": {
+      "nodes": 113,
+      "directions": 12,
+      "keys": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L"
+      ],
+      "keyed_nodes": 20,
+      "merged_keys": [
+        "A",
+        "B",
+        "E",
+        "F",
+        "I",
+        "J",
+        "L"
+      ],
+      "terminating_keys": 1,
+      "comment_lines": 61
+    },
+    "checks": [
+      {
+        "round": 1,
+        "at": "2026-10-03T01:24:48.965Z",
+        "passed": true,
+        "output_chars": 3587,
+        "error_output": null
+      },
+      {
+        "round": 2,
+        "at": "2026-10-03T01:26:10.412Z",
+        "passed": false,
+        "output_chars": 7661,
+        "error_output": "Exit code 1\n$ node .claude/skills/direction-classification/scripts/src/cli.ts headsign-table-check --db feeds/hachinohe.sqlite3 --target targets/center.yaml --table work/headsign-table.jsonl\n{\"headsign\":\"[190円]市内循環線（右回り）（シンフォニープラザ・ピアドゥ前・ラピア経由）\",\"destination\":\"ラピア\",\"via\":[\"シンフォニープラザ\",\"ピアドゥ前\"],\"category\":\"190円 市内循環線（右回り）\"}\n{\"headsign\":\"[Ａ27]八戸学院大学（館花下・旭ヶ丘営業所・工業大学前経由）\",\"destination\":\"八戸学院大学\",\"via\":[\"館花下\",\"旭ヶ丘営業所\",\"工業大学前\"],\"category\":\"Ａ27\"}\n{\"headsign\":\"[Ａ34]工業大学（館花下・旭ヶ丘営業所経由）\",\"destination\":\"工業大学前\",\"via\":[\"館花下\",\"旭ヶ丘営業所\"],\"category\":\"Ａ34\"}\n{\"headsign\":\"[Ａ3]旭ヶ丘営業所（館花下・東運動公園経由）\",\"destination\":\"旭ヶ丘営業所\",\"via\":[\"館花下\",\"東運動公園\"],\"category\":\"Ａ3\"}\n{\"headsign\":\"[Ａ3]旭ヶ丘営業所（館花下経由）\",\"destination\":\"旭ヶ丘営業所\",\"via\":[\"館花下\"],\"category\":\"Ａ3\"}\n{\"headsign\":\"[Ｆ1]大杉平バスセンター\",\"destination\":\"大杉平バスセンター\",\"via\":[],\"category\":\"Ｆ1\"}\n{\"headsign\":\"[Ｆ4]上二ツ家（大杉平バスセンター経由）\",\"destination\":\"上二ツ家\",\"via\":[\"大杉平バスセンター\"],\"category\":\"Ｆ4\"}\n{\"headsign\":\"[Ｈ55]河原木団地（南口）（本八戸駅・八太郎・小田前経由）\",\"destination\":\"河原木団地南口\",\"via\":[\"本八戸駅\",\"八太郎\",\"小田前\"],\"category\":\"Ｈ55\"}\n{\"headsign\":\"[Ｈ58]多賀台団地（循環）（本八戸駅・八太郎・三菱製紙前・車検登録事務所経由）\",\"destination\":\"多賀台団地\",\"via\":[\"本八戸駅\",\"八太郎\",\"三菱製紙前\",\"車検登録事務所\"],\"category\":\"Ｈ58 循環\"}\n{\"headsign\":\"[Ｈ58]多賀台団地（循環）（本八戸駅・八太郎・三菱製紙前経由）\",\"destination\":\"多賀台団地\",\"via\":[\"本八戸駅\",\"八太郎\",\"三菱製紙前\"],\"category\":\"Ｈ58 循環\"}\n{\"headsign\":\"[Ｈ58]多賀台団地（本八戸駅・八太郎・三菱製紙前経由）\",\"destination\":\"多賀台団地\",\"via\":[\"本八戸駅\",\"八太郎\",\"三菱製紙前\"],\"category\":\"Ｈ58\"}\n{\"headsign\":\"[Ｈ59]シルバークリニック（本八戸駅・八太郎・小田前経由）\",\"destination\":\"シルバークリニック\",\"via\":[\"本八戸駅\",\"八太郎\",\"小田前\"],\"category\":\"Ｈ59\"}\n{\"headsign\":\"[Ｊ40]是川団地（斎場前経由）\",\"destination\":\"是川団地\",\"via\":[\"斎場前\"],\"category\":\"Ｊ40\"}\n{\"headsign\":\"[Ｋ67]ハイテクパーク（西売市経由）\",\"destination\":\"ハイテクパーク\",\"via\":[\"西売市\"],\"category\":\"Ｋ67\"}\n{\"headsign\":\"[Ｋ68]多賀台団地（循環）（西売市・河原木団地・車検登録事務所経由）\",\"destination\":\"多賀台団地\",\"via\":[\"西売市\",\"河原木団地\",\"車検登録事務所\"],\"category\":\"Ｋ68 循環\"}\n{\"headsign\":\"[Ｋ68]多賀台団地（循環）（西売市・河原木団地経由）\",\"destination\":\"多賀台団地\",\"via\":[\"西売市\",\"河原木団地\"],\"category\":\"Ｋ68 循環\"}\n{\"headsign\":\"[Ｋ68]多賀台団地（西売市・河原木団地・市川中学校前経由）\",\"destination\":\"多賀台団地\",\"via\":[\"西売市\",\"河原木団地\",\"市川中学校前\"],\"category\":\"Ｋ68\"}\n{\"headsign\":\"[Ｋ68]多賀台団地（西売市・河原木団地・轟木経由）\",\"destination\":\"多賀台団地\",\"via\":[\"西売市\",\"河原木団地\",\"轟木\"],\"category\":\"Ｋ68\"}\n{\"headsign\":\"[Ｋ68]多賀台団地（西売市・河原木団地経由）\",\"destination\":\"多賀台団地\",\"via\":[\"西売市\",\"河原木団地\"],\"category\":\"Ｋ68\"}\n{\"headsign\":\"[Ｍ10]鮫（白銀経由）\",\"destination\":\"鮫小学校通\",\"via\":[\"白銀\"],\"category\":\"Ｍ10\"}\n{\"headsign\":\"[Ｍ10]鮫（館鼻漁港前・白銀経由）\",\"destination\":\"鮫小学校通\",\"via\":[\"館鼻漁港前\",\"白銀\"],\"category\":\"Ｍ10\"}\n{\"headsign\":\"[Ｍ12]高等支援学校（上柳町・労災病院通経由）\",\"destination\":\"高等支援学校前\",\"via\":[\"上柳町\",\"労災病院通\"],\"category\":\"Ｍ12\"}\n{\"headsign\":\"[Ｍ12]高等支援学校（白銀経由）\",\"destination\":\"高等支援学校前\",\"via\":[\"白銀\"],\"category\":\"Ｍ12\"}\n{\"headsign\":\"[Ｍ15]金浜小学校前（上柳町・労災病院通経由）\",\"destination\":\"金浜小学校前\",\"via\":[\"上柳町\",\"労災病院通\"],\"category\":\"Ｍ15\"}\n{\"headsign\":\"[Ｍ20]鮫（上柳町・労災病院通経由）\",\"destination\":\"鮫小学校通\",\"via\":[\"上柳町\",\"労災病院通\"],\"category\":\"Ｍ20\"}\n{\"headsign\":\"[Ｍ24]岬台団地（上柳町・労災病院通経由）\",\"destination\":\"岬台団地\",\"via\":[\"上柳町\",\"労災病院通\"],\"category\":\"Ｍ24\"}\n{\"headsign\":\"[Ｍ30]旭ヶ丘営業所（上柳町・新井田西二丁目経由）\",\"destination\":\"旭ヶ丘営業所\",\"via\":[\"上柳町\",\"新井田西二丁目\"],\"category\":\"Ｍ30\"}\n{\"headsign\":\"[Ｎ60]八戸駅（根城六丁目・根城大橋経由）\",\"destination\":\"八戸駅\",\"via\":[\"根城六丁目\",\"根城大橋\"],\"category\":\"Ｎ60\"}\n{\"headsign\":\"[Ｎ61]中央市場（八食センター）（図書館前・根城六丁目・根城大橋経由）\",\"destination\":\"中央市場\",\"via\":[\"図書館前\",\"根城六丁目\",\"根城大橋\"],\"category\":\"Ｎ61\"}\n{\"headsign\":\"[Ｎ61]中央市場（八食センター）（根城六丁目・根城大橋・卸センター経由）\",\"destination\":\"中央市場\",\"via\":[\"根城六丁目\",\"根城大橋\",\"卸センター\"],\"category\":\"Ｎ61\"}\n{\"headsign\":\"[Ｎ61]中央市場（八食センター）（根城六丁目・根城大橋経由）\",\"destination\":\"中央市場\",\"via\":[\"根城六丁目\",\"根城大橋\"],\"category\":\"Ｎ61\"}\n{\"headsign\":\"[Ｎ63]八戸駅・西高校（根城六丁目・根城大橋経由）\",\"destination\":\"西高校前\",\"via\":[\"根城六丁目\",\"根城大橋\",\"八戸駅\"],\"category\":\"Ｎ63\"}\n{\"headsign\":\"[Ｐ50]本八戸駅\",\"destination\":\"本八戸駅\",\"via\":[],\"category\":\"Ｐ50\"}\n{\"headsign\":\"[Ｐ51]舟見町（本八戸駅経由）\",\"destination\":\"舟見町\",\"via\":[\"本八戸駅\"],\"category\":\"Ｐ51\"}\n{\"headsign\":\"[Ｐ8]ラピア（本八戸駅経由）\",\"destination\":\"ラピア\",\"via\":[\"本八戸駅\"],\"category\":\"Ｐ8\"}\n{\"headsign\":\"[Ｐ8]ラピア（栄町経由）\",\"destination\":\"ラピア\",\"via\":[\"栄町\"],\"category\":\"Ｐ8\"}\n{\"headsign\":\"[Ｓ30]旭ヶ丘営業所（イオン田向店・市民病院・旭ヶ丘団地経由）\",\"destination\":\"旭ヶ丘営業所\",\"via\":[\"イオン田向店\",\"市民病院\",\"旭ヶ丘団地\"],\"category\":\"Ｓ30\"}\n{\"headsign\":\"[Ｓ31]桜ヶ丘・旭ヶ丘営業所（イオン田向店・市民病院・旭ヶ丘団地経由）\",\"destination\":\"旭ヶ丘営業所\",\"via\":[\"イオン田向店\",\"市民病院\",\"旭ヶ丘団地\",\"桜ヶ丘\"],\"category\":\"Ｓ31\"}\n{\"headsign\":\"[Ｓ32]第二桜ヶ丘（イオン田向店・市民病院・旭ヶ丘団地・桜ヶ丘経由）\",\"destination\":\"第二桜ヶ丘\",\"via\":[\"イオン田向店\",\"市民病院\",\"旭ヶ丘団地\",\"桜ヶ丘\"],\"category\":\"Ｓ32\"}\n{\"headsign\":\"[Ｓ34]工業大学（市民病院・旭ヶ丘団地経由）\",\"destination\":\"工業大学前\",\"via\":[\"市民病院\",\"旭ヶ丘団地\"],\"category\":\"Ｓ34\"}\n{\"headsign\":\"[Ｔ71]聖ウルスラ学院（司法センター前経由）\",\"destination\":\"聖ウルスラ学院\",\"via\":[\"司法センター前\"],\"category\":\"Ｔ71\"}\n{\"headsign\":\"[Ｔ71]聖ウルスラ学院（循環）（司法センター前経由）\",\"destination\":\"聖ウルスラ学院\",\"via\":[\"司法センター前\"],\"category\":\"Ｔ71 循環\"}\n{\"headsign\":\"[Ｗ75]八戸ニュータウン（循環）（桜木町・根城六丁目経由）\",\"destination\":\"八戸ニュータウン\",\"via\":[\"桜木町\",\"根城六丁目\"],\"category\":\"Ｗ75 循環\"}\n{\"headsign\":\"[Ｗ75]八戸ニュータウン（桜木町・根城六丁目経由）\",\"destination\":\"八戸ニュータウン\",\"via\":[\"桜木町\",\"根城六丁目\"],\"category\":\"Ｗ75\"}\n{\"headsign\":\"[Ｙ26]平庭（館花下・諏訪・上柳町・労災病院通経由）\",\"destination\":\"平庭\",\"via\":[\"館花下\",\"諏訪\",\"上柳町\",\"労災病院通\"],\"category\":\"Ｙ26\"}\n{\"headsign\":\"中心街\",\"destination\":\"十三日町\",\"via\":[]}\n{\"headsign\":\"中心街（八日町）\",\"destination\":\"八戸中心街ターミナル（八日町）\",\"via\":[]}\n{\"headsign\":\"中心街（八日町）（陸奥湊駅前経由）\",\"destination\":\"八戸中心街ターミナル（八日町）\",\"via\":[]}\n{\"headsign\":\"館鼻漁港前（館鼻岸壁朝市）（柳町（湊山手通り朝市）経由）\",\"destination\":\"館鼻漁港前\",\"via\":[\"柳町\"]}\n$ node .claude/skills/direction-classification/scripts/src/cli.ts name-candidates --db feeds/hachinohe.sqlite3 --target targets/center.yaml --definition work/directions.yaml --table work/headsign-table.jsonl --quiet-exit-check-unused\ntimetable name-candidates\n\nT13. 方面名候補の集計表\n\nOptions:\n  --version              Show version number  [boolean]\n  --help                 Show help  [boolean]\n  --db                   GTFS を取り込んだ SQLite ファイルのパス  [string] [required]\n  --target               対象の指定（stop_ids と same_place_radius_m の YAML）のパス  [string]\n  --stop-id              対象の乗り場の stop_id（複数指定できる）。--target と排他  [array]\n  --same-place-radius-m  歩いて乗り直せる同じ場所とみなす距離（m）。この距離以内の乗り場への再訪で停車列を切る。--target と排他  [number]\n  --definition           方面の定義（T11 の出力に方面キーを足した YAML）のパス  [string] [required]\n  --table                行先表示の対応表（T8 の JSONL）のパス  [string] [required]\n\n対象の指定: --target か、--stop-id と --same-place-radius-m の組。排他（両方はエラー）。\n  --target のファイル（YAML）:\n    stop_ids: [ 19019_1, 19019_2, 19019_7 ]\n    same_place_radius_m: 50\n\n出力: TSV。方面 × 候補語で1行。列は\n  direction / word / source / via_trips / destination_trips /\n  passing_trips / direction_trips / route_count / visit_count / platform_count /\n  duplicated_directions / distance_m\n  via_trips / destination_trips  その語が経由地／行先として行先表示に現れた便数（案内語の強さ）\n  passing_trips / direction_trips  その語の停留所を通る便数／その方面の便数（網羅性）\n  duplicated_directions          同じ語が候補に立っている他の方面キー。無ければ空\n  distance_m                     対象停留所からの距離\n  route_count 等                 拠点性（T12）。候補語が停留所名に当たるときだけ埋まる\n\n方面の定義（--definition）: T11 の出力（YAML の木）に方面キーを足したファイル。\n  direction                        そのノードの配下を通る便が属する方面キー\n  direction_terminating_here  区間の末尾で終わる便が属する方面キー\n  方面キーは無機質な識別子（A・B・数字）にする。地名らしい語を入れない\n  （方面名を決めるのは後の段で、キーが判断材料になってはいけない）。\n  合体は複数のノードに同じキーを書く。分割はより深いノードにキーを書く。\n  キーを付けたノードの配下に別のキーを置かない（入れ子は禁止）。\n  木の全体を保存する。枝が書かれていてキーが無いことは、その分岐を見たうえで\n  「まとめる」と判断した記録になる。\n\n読み方: 候補語は2つの軸で評価する。\n  案内語の強さ（via_trips + destination_trips）と網羅性（passing / direction）。\n  両方を満たす語があればそれが最良。両立しないときは選択になる。\n  網羅性だけの語（全便が通るが誰も呼ばない語）を採ると、掲示の見出しと、\n  その下に並ぶ行先表示のどこにも同じ語が出てこない状態になる。\n  最多語が過半数に届かないときは、名前選びの前に分割不足を疑う。\n\n注意:\n  行先表示に現れない語（案内語が0の語）は表に載せない。ただしその方面に案内語が\n  1つも無いときは落とさない（stop_headsign が無いフィードでは拠点性で選ぶため）。\n  重複列が立った語は、その相手の方面と取り合いになる。両方では採れない。\n  距離が近すぎる語は方向を示す語として弱い（分岐の直後にある停留所など）。\n  方角の列は持たない。方角は停留所名にも行先表示にも現れない語で、掲示に出せば創作になる。\n  どの方面にも入らない便があれば、表を作らずエラーで止める。\n  定義の木と実データの木が食い違ってもエラーで止める（まだ見ていない分岐があるため）。\n\nUnknown arguments: quiet-exit-check-unused, quietExitCheckUnused\n[ELIFECYCLE] Command failed with exit code 1."
+      },
+      {
+        "round": 3,
+        "at": "2026-10-03T01:26:17.310Z",
+        "passed": true,
+        "output_chars": 3587,
+        "error_output": null
+      }
+    ],
+    "final_passed": true,
+    "definition_edits": 23,
+    "returns_to_step4": 0,
+    "names": [
+      {
+        "key": "A",
+        "name": "上柳町・労災病院通 方面"
+      },
+      {
+        "key": "B",
+        "name": "白銀 方面"
+      },
+      {
+        "key": "C",
+        "name": "館花下・旭ヶ丘営業所 方面"
+      },
+      {
+        "key": "D",
+        "name": "市民病院・旭ヶ丘団地 方面"
+      },
+      {
+        "key": "E",
+        "name": "斎場前・是川団地 方面"
+      },
+      {
+        "key": "F",
+        "name": "根城六丁目・根城大橋 方面"
+      },
+      {
+        "key": "G",
+        "name": "聖ウルスラ学院・八戸ニュータウン 方面"
+      },
+      {
+        "key": "H",
+        "name": "西売市・河原木団地・多賀台団地 方面"
+      },
+      {
+        "key": "I",
+        "name": "本八戸駅 方面"
+      },
+      {
+        "key": "J",
+        "name": "大杉平バスセンター 方面"
+      },
+      {
+        "key": "K",
+        "name": "栄町・ラピア 方面"
+      },
+      {
+        "key": "L",
+        "name": "十三日町 方面"
+      }
+    ],
+    "names_missing": [],
+    "names_extra": [],
+    "name_writes": 1
+  },
+  "time": {
+    "headsign_table_seconds": null,
+    "directions_seconds": 242.521,
+    "naming_seconds": 66.831,
+    "session_seconds": 438.273
+  },
+  "input": {
+    "variants_output_chars": 1400,
+    "table_check_output_chars": [
+      2938,
+      213,
+      7661
+    ],
+    "direction_split_output_chars": 169,
+    "name_candidates_output_chars": [
+      3587,
+      7661,
+      3587
+    ]
+  },
+  "tokens": {
+    "headsign_table": {
+      "input": 48,
+      "cache_creation": 90348,
+      "cache_read": 1578118,
+      "output": 44547,
+      "turns": 24,
+      "max_context": 115419
+    },
+    "directions": {
+      "input": 16,
+      "cache_creation": 49308,
+      "cache_read": 512357,
+      "output": 25588,
+      "turns": 8,
+      "max_context": 92000
+    },
+    "naming": {
+      "input": 8,
+      "cache_creation": 13085,
+      "cache_read": 384471,
+      "output": 6081,
+      "turns": 4,
+      "max_context": 105085
+    },
+    "session": {
+      "input": 54,
+      "cache_creation": 111304,
+      "cache_read": 1618927,
+      "output": 44793,
+      "turns": 27,
+      "max_context": 115419
+    }
+  },
+  "cost_usd": {
+    "session": 2.1102933999999993
+  },
+  "tool_calls": {
+    "Skill": 1,
+    "Bash": 25,
+    "Write": 3,
+    "Read": 1,
+    "Edit": 23
+  },
+  "timetable_calls": {
+    "headsign-variants": 1,
+    "headsign-table-check": 3,
+    "direction-split": 1,
+    "headsign-sequence": 1,
+    "name-candidates": 2,
+    "via-stops": 9
+  },
+  "bash_outside_tools": [
+    {
+      "at": "2026-10-03T01:19:17.323Z",
+      "command": "cat targets/center.yaml; ls work",
+      "passed": true
+    },
+    {
+      "at": "2026-10-03T01:26:10.412Z",
+      "command": "pnpm run timetable headsign-table-check --db feeds/hachinohe.sqlite3 --target targets/center.yaml --table work/headsign-table.jsonl && pnpm run timetable name-candidates --db feeds/hachinohe.sqlite3 --target targets/center.yaml --definition work/directions.yaml --table work/headsign-table.jsonl --quiet-exit-check-unused",
+      "passed": false
+    }
+  ]
+}

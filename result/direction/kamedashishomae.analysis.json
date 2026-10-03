@@ -1,0 +1,753 @@
+{
+  "headsign_table": {
+    "headsigns": 46,
+    "first_output": {
+      "rows": 46,
+      "destinations": 20,
+      "via_total": 109,
+      "via_distinct": 48,
+      "rows_with_category": 0,
+      "categories": []
+    },
+    "final_output": {
+      "rows": 46,
+      "destinations": 19,
+      "via_total": 107,
+      "via_distinct": 42,
+      "rows_with_category": 0,
+      "categories": []
+    },
+    "checks": [
+      {
+        "round": 1,
+        "at": "2026-10-03T01:35:45.897Z",
+        "passed": false,
+        "output_chars": 3994,
+        "checked_version": 0,
+        "failed_rows": 19,
+        "errors_by_kind": {
+          "実在しない名前": 19
+        }
+      },
+      {
+        "round": 2,
+        "at": "2026-10-03T01:36:32.376Z",
+        "passed": true,
+        "output_chars": 222,
+        "checked_version": 19,
+        "failed_rows": 0,
+        "errors_by_kind": {}
+      }
+    ],
+    "fixes": {
+      "writes": 1,
+      "edits": 19
+    },
+    "final_passed": true,
+    "errors": [
+      {
+        "round": 1,
+        "headsign": "五稜郭・湯倉神社前経由 函館空港",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "五稜郭・湯倉神社前経由 函館空港",
+          "destination": "函館空港",
+          "via": [
+            "五稜郭",
+            "湯倉神社前"
+          ]
+        },
+        "row_after": {
+          "headsign": "五稜郭・湯倉神社前経由 函館空港",
+          "destination": "函館空港",
+          "via": [
+            "湯倉神社前"
+          ]
+        },
+        "word": "五稜郭"
+      },
+      {
+        "round": 1,
+        "headsign": "五稜郭経由 函館空港",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "五稜郭経由 函館空港",
+          "destination": "函館空港",
+          "via": [
+            "五稜郭"
+          ]
+        },
+        "row_after": {
+          "headsign": "五稜郭経由 函館空港",
+          "destination": "函館空港",
+          "via": [
+            "五稜郭"
+          ]
+        },
+        "word": "五稜郭"
+      },
+      {
+        "round": 1,
+        "headsign": "函館大学前(花園町・湯倉神社)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "函館大学前(花園町・湯倉神社)",
+          "destination": "函館大学前",
+          "via": [
+            "花園町",
+            "湯倉神社"
+          ]
+        },
+        "row_after": {
+          "headsign": "函館大学前(花園町・湯倉神社)",
+          "destination": "函館大学前",
+          "via": [
+            "花園町",
+            "湯倉神社"
+          ]
+        },
+        "word": "湯倉神社"
+      },
+      {
+        "round": 1,
+        "headsign": "函館大学前(花園町・湯倉神社・高専)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "函館大学前(花園町・湯倉神社・高専)",
+          "destination": "函館大学前",
+          "via": [
+            "花園町",
+            "湯倉神社",
+            "高専"
+          ]
+        },
+        "row_after": {
+          "headsign": "函館大学前(花園町・湯倉神社・高専)",
+          "destination": "函館大学前",
+          "via": [
+            "花園町",
+            "湯倉神社",
+            "高専"
+          ]
+        },
+        "word": "湯倉神社"
+      },
+      {
+        "round": 1,
+        "headsign": "函館大学前(花園町・湯倉神社・高専)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "函館大学前(花園町・湯倉神社・高専)",
+          "destination": "函館大学前",
+          "via": [
+            "花園町",
+            "湯倉神社",
+            "高専"
+          ]
+        },
+        "row_after": {
+          "headsign": "函館大学前(花園町・湯倉神社・高専)",
+          "destination": "函館大学前",
+          "via": [
+            "花園町",
+            "湯倉神社",
+            "高専"
+          ]
+        },
+        "word": "高専"
+      },
+      {
+        "round": 1,
+        "headsign": "函館駅前(昭和ターミナル・桐花通)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "函館駅前(昭和ターミナル・桐花通)",
+          "destination": "函館駅前",
+          "via": [
+            "昭和ターミナル",
+            "桐花通"
+          ]
+        },
+        "row_after": {
+          "headsign": "函館駅前(昭和ターミナル・桐花通)",
+          "destination": "函館駅前",
+          "via": [
+            "昭和ターミナル",
+            "桐花通"
+          ]
+        },
+        "word": "桐花通"
+      },
+      {
+        "round": 1,
+        "headsign": "函館駅前(蔦屋・昭和・五稜郭駅前・ガス会社前)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "函館駅前(蔦屋・昭和・五稜郭駅前・ガス会社前)",
+          "destination": "函館駅前",
+          "via": [
+            "蔦屋",
+            "昭和",
+            "五稜郭駅前",
+            "ガス会社前"
+          ]
+        },
+        "row_after": {
+          "headsign": "函館駅前(蔦屋・昭和・五稜郭駅前・ガス会社前)",
+          "destination": "函館駅前",
+          "via": [
+            "蔦屋",
+            "昭和",
+            "五稜郭駅前",
+            "ガス会社前"
+          ]
+        },
+        "word": "蔦屋"
+      },
+      {
+        "round": 1,
+        "headsign": "函館駅前・バスセンター(五稜郭)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "函館駅前・バスセンター(五稜郭)",
+          "destination": "バスセンター",
+          "via": [
+            "五稜郭",
+            "函館駅前"
+          ]
+        },
+        "row_after": {
+          "headsign": "函館駅前・バスセンター(五稜郭)",
+          "destination": "バスセンター",
+          "via": [
+            "五稜郭",
+            "函館駅前"
+          ]
+        },
+        "word": "バスセンター"
+      },
+      {
+        "round": 1,
+        "headsign": "千代台(昭和ターミナル・桐花通)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "千代台(昭和ターミナル・桐花通)",
+          "destination": "千代台",
+          "via": [
+            "昭和ターミナル",
+            "桐花通"
+          ]
+        },
+        "row_after": {
+          "headsign": "千代台(昭和ターミナル・桐花通)",
+          "destination": "千代台",
+          "via": [
+            "昭和ターミナル",
+            "桐花通"
+          ]
+        },
+        "word": "桐花通"
+      },
+      {
+        "round": 1,
+        "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "亀田支所",
+            "七飯高校",
+            "七飯新病院",
+            "藤城"
+          ]
+        },
+        "row_after": {
+          "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "亀田支所",
+            "七飯高校",
+            "七飯新病院",
+            "藤城"
+          ]
+        },
+        "word": "亀田支所"
+      },
+      {
+        "round": 1,
+        "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "亀田支所",
+            "七飯高校",
+            "七飯新病院",
+            "藤城"
+          ]
+        },
+        "row_after": {
+          "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "亀田支所",
+            "七飯高校",
+            "七飯新病院",
+            "藤城"
+          ]
+        },
+        "word": "七飯高校"
+      },
+      {
+        "round": 1,
+        "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "亀田支所",
+            "七飯高校",
+            "七飯新病院",
+            "藤城"
+          ]
+        },
+        "row_after": {
+          "headsign": "新函館北斗駅(亀田支所・七飯高校・七飯新病院・藤城)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "亀田支所",
+            "七飯高校",
+            "七飯新病院",
+            "藤城"
+          ]
+        },
+        "word": "七飯新病院"
+      },
+      {
+        "round": 1,
+        "headsign": "新函館北斗駅(亀田支所・昭和・七飯・藤城)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "新函館北斗駅(亀田支所・昭和・七飯・藤城)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "亀田支所",
+            "昭和",
+            "七飯",
+            "藤城"
+          ]
+        },
+        "row_after": {
+          "headsign": "新函館北斗駅(亀田支所・昭和・七飯・藤城)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "亀田支所",
+            "昭和",
+            "七飯",
+            "藤城"
+          ]
+        },
+        "word": "亀田支所"
+      },
+      {
+        "round": 1,
+        "headsign": "新函館北斗駅(桔梗・なないろななえ)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "新函館北斗駅(桔梗・なないろななえ)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "桔梗",
+            "なないろななえ"
+          ]
+        },
+        "row_after": {
+          "headsign": "新函館北斗駅(桔梗・なないろななえ)",
+          "destination": "新函館北斗駅",
+          "via": [
+            "桔梗",
+            "なないろななえ"
+          ]
+        },
+        "word": "なないろななえ"
+      },
+      {
+        "round": 1,
+        "headsign": "旭岡中学校前(花園町・湯倉神社・湯川団地)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "旭岡中学校前(花園町・湯倉神社・湯川団地)",
+          "destination": "旭岡中学校前",
+          "via": [
+            "花園町",
+            "湯倉神社",
+            "湯川団地"
+          ]
+        },
+        "row_after": {
+          "headsign": "旭岡中学校前(花園町・湯倉神社・湯川団地)",
+          "destination": "旭岡中学校前",
+          "via": [
+            "花園町",
+            "湯倉神社",
+            "湯川団地"
+          ]
+        },
+        "word": "湯倉神社"
+      },
+      {
+        "round": 1,
+        "headsign": "旭岡中学校前(花園町・湯倉神社・湯川団地)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "旭岡中学校前(花園町・湯倉神社・湯川団地)",
+          "destination": "旭岡中学校前",
+          "via": [
+            "花園町",
+            "湯倉神社",
+            "湯川団地"
+          ]
+        },
+        "row_after": {
+          "headsign": "旭岡中学校前(花園町・湯倉神社・湯川団地)",
+          "destination": "旭岡中学校前",
+          "via": [
+            "花園町",
+            "湯倉神社",
+            "湯川団地"
+          ]
+        },
+        "word": "湯川団地"
+      },
+      {
+        "round": 1,
+        "headsign": "旭岡中学校前(鍛治団地・五稜郭・湯倉神社)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "旭岡中学校前(鍛治団地・五稜郭・湯倉神社)",
+          "destination": "旭岡中学校前",
+          "via": [
+            "鍛治団地",
+            "五稜郭",
+            "湯倉神社"
+          ]
+        },
+        "row_after": {
+          "headsign": "旭岡中学校前(鍛治団地・五稜郭・湯倉神社)",
+          "destination": "旭岡中学校前",
+          "via": [
+            "鍛治団地",
+            "五稜郭",
+            "湯倉神社"
+          ]
+        },
+        "word": "湯倉神社"
+      },
+      {
+        "round": 1,
+        "headsign": "昭和ターミナル(五稜郭・ガス会社・昭和)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "昭和ターミナル(五稜郭・ガス会社・昭和)",
+          "destination": "昭和ターミナル",
+          "via": [
+            "五稜郭",
+            "ガス会社",
+            "昭和"
+          ]
+        },
+        "row_after": {
+          "headsign": "昭和ターミナル(五稜郭・ガス会社・昭和)",
+          "destination": "昭和ターミナル",
+          "via": [
+            "五稜郭",
+            "ガス会社",
+            "昭和"
+          ]
+        },
+        "word": "ガス会社"
+      },
+      {
+        "round": 1,
+        "headsign": "昭和ターミナル(渡島総合振興局・美原台団地)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "昭和ターミナル(渡島総合振興局・美原台団地)",
+          "destination": "昭和ターミナル",
+          "via": [
+            "渡島総合振興局",
+            "美原台団地"
+          ]
+        },
+        "row_after": {
+          "headsign": "昭和ターミナル(渡島総合振興局・美原台団地)",
+          "destination": "昭和ターミナル",
+          "via": [
+            "渡島総合振興局",
+            "美原台団地"
+          ]
+        },
+        "word": "渡島総合振興局"
+      },
+      {
+        "round": 1,
+        "headsign": "昭和ターミナル・桐花通経由 函館駅前",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "昭和ターミナル・桐花通経由 函館駅前",
+          "destination": "函館駅前",
+          "via": [
+            "昭和ターミナル",
+            "桐花通"
+          ]
+        },
+        "row_after": {
+          "headsign": "昭和ターミナル・桐花通経由 函館駅前",
+          "destination": "函館駅前",
+          "via": [
+            "昭和ターミナル",
+            "桐花通"
+          ]
+        },
+        "word": "桐花通"
+      },
+      {
+        "round": 1,
+        "headsign": "蔦屋書店前・桔梗町４１８番地(渡島振興局・亀田外郭通)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "蔦屋書店前・桔梗町４１８番地(渡島振興局・亀田外郭通)",
+          "destination": "桔梗町４１８番地",
+          "via": [
+            "渡島振興局",
+            "亀田外郭通",
+            "蔦屋書店前"
+          ]
+        },
+        "row_after": {
+          "headsign": "蔦屋書店前・桔梗町４１８番地(渡島振興局・亀田外郭通)",
+          "destination": "桔梗町４１８番地",
+          "via": [
+            "渡島振興局",
+            "亀田外郭通",
+            "蔦屋書店前"
+          ]
+        },
+        "word": "渡島振興局"
+      },
+      {
+        "round": 1,
+        "headsign": "谷地頭温泉(五稜郭・中の橋・市役所)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "谷地頭温泉(五稜郭・中の橋・市役所)",
+          "destination": "谷地頭温泉",
+          "via": [
+            "五稜郭",
+            "中の橋",
+            "市役所"
+          ]
+        },
+        "row_after": {
+          "headsign": "谷地頭温泉(五稜郭・中の橋・市役所)",
+          "destination": "谷地頭温泉",
+          "via": [
+            "五稜郭",
+            "中の橋",
+            "市役所"
+          ]
+        },
+        "word": "市役所"
+      },
+      {
+        "round": 1,
+        "headsign": "赤川・四季の杜公園(赤川通・未来大学)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "赤川・四季の杜公園(赤川通・未来大学)",
+          "destination": "四季の杜公園",
+          "via": [
+            "赤川通",
+            "未来大学",
+            "赤川"
+          ]
+        },
+        "row_after": {
+          "headsign": "赤川・四季の杜公園(赤川通・未来大学)",
+          "destination": "四季の杜公園",
+          "via": [
+            "赤川通",
+            "未来大学",
+            "赤川"
+          ]
+        },
+        "word": "四季の杜公園"
+      },
+      {
+        "round": 1,
+        "headsign": "赤川・四季の杜公園(赤川通・未来大学)",
+        "kind": "実在しない名前",
+        "row_before": {
+          "headsign": "赤川・四季の杜公園(赤川通・未来大学)",
+          "destination": "四季の杜公園",
+          "via": [
+            "赤川通",
+            "未来大学",
+            "赤川"
+          ]
+        },
+        "row_after": {
+          "headsign": "赤川・四季の杜公園(赤川通・未来大学)",
+          "destination": "四季の杜公園",
+          "via": [
+            "赤川通",
+            "未来大学",
+            "赤川"
+          ]
+        },
+        "word": "未来大学"
+      }
+    ]
+  },
+  "directions": {
+    "definition": {
+      "nodes": 60,
+      "directions": 5,
+      "keys": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "keyed_nodes": 5,
+      "merged_keys": [],
+      "terminating_keys": 0,
+      "comment_lines": 24
+    },
+    "checks": [
+      {
+        "round": 1,
+        "at": "2026-10-03T01:38:25.985Z",
+        "passed": true,
+        "output_chars": 3683,
+        "error_output": null
+      },
+      {
+        "round": 2,
+        "at": "2026-10-03T01:40:12.171Z",
+        "passed": true,
+        "output_chars": 3683,
+        "error_output": null
+      }
+    ],
+    "final_passed": true,
+    "definition_edits": 6,
+    "returns_to_step4": 0,
+    "names": [
+      {
+        "key": "A",
+        "name": "五稜郭・函館駅前 方面"
+      },
+      {
+        "key": "B",
+        "name": "昭和ターミナル 方面"
+      },
+      {
+        "key": "C",
+        "name": "渡島総合振興局前・美原台団地 方面"
+      },
+      {
+        "key": "D",
+        "name": "はこだて未来大学・赤川 方面"
+      },
+      {
+        "key": "E",
+        "name": "東山団地 方面"
+      }
+    ],
+    "names_missing": [],
+    "names_extra": [],
+    "name_writes": 1
+  },
+  "time": {
+    "headsign_table_seconds": 78.719,
+    "directions_seconds": 109.066,
+    "naming_seconds": 103.821,
+    "session_seconds": 318.817
+  },
+  "input": {
+    "variants_output_chars": 1017,
+    "table_check_output_chars": [
+      3994,
+      222
+    ],
+    "direction_split_output_chars": 178,
+    "name_candidates_output_chars": [
+      3683,
+      3683
+    ]
+  },
+  "tokens": {
+    "headsign_table": {
+      "input": 10,
+      "cache_creation": 12098,
+      "cache_read": 134475,
+      "output": 10159,
+      "turns": 5,
+      "max_context": 37070
+    },
+    "directions": {
+      "input": 8,
+      "cache_creation": 24027,
+      "cache_read": 212227,
+      "output": 11588,
+      "turns": 4,
+      "max_context": 69103
+    },
+    "naming": {
+      "input": 4,
+      "cache_creation": 14554,
+      "cache_read": 144418,
+      "output": 8012,
+      "turns": 2,
+      "max_context": 83657
+    },
+    "session": {
+      "input": 34,
+      "cache_creation": 85869,
+      "cache_read": 740767,
+      "output": 33701,
+      "turns": 17,
+      "max_context": 91655
+    }
+  },
+  "cost_usd": {
+    "session": 1.5092614
+  },
+  "tool_calls": {
+    "Skill": 1,
+    "Bash": 21,
+    "Write": 2,
+    "Edit": 25,
+    "Read": 1
+  },
+  "timetable_calls": {
+    "headsign-variants": 1,
+    "headsign-table-check": 2,
+    "direction-split": 1,
+    "headsign-sequence": 2,
+    "name-candidates": 2,
+    "via-stops": 5
+  },
+  "bash_outside_tools": [
+    {
+      "at": "2026-10-03T01:35:10.080Z",
+      "command": "cat targets/kamedashisho.yaml; ls work",
+      "passed": true
+    }
+  ]
+}
